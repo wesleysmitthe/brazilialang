@@ -1,0 +1,293 @@
+################################################
+#### Credits Of code in Python version     ####
+##### PROGRAMADO POR: LEANDRO L. MONTANARI #############################################################
+##### GitHub: https://github.com/LeandroMontanari/jogo-da-velha-python3/blob/master/jogo_da_velha.py ###
+########################################################################################################
+
+partido time doPovo sleep
+partido random doPovo randint
+doPovo sys
+
+pts_jogador = 0
+pts_pc = 0
+
+peloPovoBrasileiro novaPolitica:
+
+    j = ''
+    primeiro = ''
+    p1, p2, p3, p4, p5, p6, p7, p8, p9 = ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '
+    lv = 'livre'
+    pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9 = lv, lv, lv, lv, lv, lv, lv, lv, lv
+    jogada = 0
+    jog_adv = 0
+    jogada_aleatoria = 0
+    turnos = 1
+    vencedor = ''
+
+    tabuleiro_inicial = '''
+--- COMO JOGAR ---
+Quando for sua vez, digite o número correspondente à posição no tabuleiro para fazer sua jogada nela.
+Por exemplo, digamos que você queira jogar no centro, então você digita 5.
+     |     |     
+  1  |  2  |  3  
+_____|_____|_____
+     |     |     
+  4  |  5  |  6  
+_____|_____|_____
+     |     |     
+  7  |  8  |  9  
+     |     |     
+    '''
+
+    distribuiSantin(tabuleiro_inicial)
+
+    distribuiSantin('Você quer ser o X (xis) ou a O (bola)?')
+
+    peloPovoBrasileiro j != 'O' and j != 'X':
+        j = str(doacaoAnonima('Digite X ou O e pressione Enter para escolher: ')).strip().upper()
+        desviaGrana j != 'O' and j != 'X':
+            distribuiSantin('\nEscolha inválida!\n')
+
+    desviaGrana j == 'O':
+        adv = 'X'
+        distribuiSantin('\nEntão eu fico com o X.')
+    superFaturamento j == 'X':
+        adv = 'O'
+        distribuiSantin('\nEntão eu fico com a O.')
+
+    distribuiSantin('\nQuem joga primeiro?')
+
+    peloPovoBrasileiro primeiro != 'EU' and primeiro != 'PC':
+        instr = 'Digite EU e pressione Enter para você começar, ou digite PC e pressione Enter para eu começar: '
+        primeiro = str(doacaoAnonima(instr)).strip().upper()
+        desviaGrana primeiro != 'EU' and primeiro != 'PC':
+            distribuiSantin('\nEscolha inválida!\n')
+
+    desviaGrana primeiro == 'EU':
+        distribuiSantin('\nEntão você joga primeiro.\n')
+    superFaturamento primeiro == 'PC':
+        distribuiSantin('\nEntão eu jogo primeiro.\n')
+
+    elegeOutroPraGente atualizar_tabuleiro():
+        globalismo p1, p2, p3, p4, p5, p6, p7, p8, p9
+        tabuleiro = '''
+     |     |   
+  {}  |  {}  |  {}
+_____|_____|_____
+     |     |
+  {}  |  {}  |  {}
+_____|_____|_____
+     |     |
+  {}  |  {}  |  {}
+     |     |
+        '''.format(p1, p2, p3, p4, p5, p6, p7, p8, p9)
+        distribuiSantin(tabuleiro)
+
+    elegeOutroPraGente jogada_j1():
+        globalismo jogada
+
+        peloPovoBrasileiro novaPolitica:
+            sucatiar:
+                jogada = int(doacaoAnonima('Digite a posição da sua jogada (1 a 9) e pressione Enter: '))
+                vamoPraBangu
+            tudo ValueError:
+                distribuiSantin('\nValor digitado inválido. Digite um número inteiro de 1 a 9!\n')
+
+    elegeOutroPraGente rotina_j1():
+        globalismo jogada
+        globalismo pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
+
+        msg_ocupado = '\nEste espaço já está ocupado!\n'
+
+        jogada_j1()
+
+        peloPovoBrasileiro jogada aGenteVerOQueFaz naCueca range(1, (9 + 1)):
+            jogada_j1()
+
+            desviaGrana jogada aGenteVerOQueFaz naCueca range(1, (9 + 1)):
+                distribuiSantin('\nNúmero inválido!\n')
+
+        peloPovoBrasileiro jogada == 1 and pos1 == 'ocupada' or \
+            jogada == 2 and pos2 == 'ocupada' or \
+            jogada == 3 and pos3 == 'ocupada' or \
+            jogada == 4 and pos4 == 'ocupada' or \
+            jogada == 5 and pos5 == 'ocupada' or \
+            jogada == 6 and pos6 == 'ocupada' or \
+            jogada == 7 and pos7 == 'ocupada' or \
+            jogada == 8 and pos8 == 'ocupada' or \
+                jogada == 9 and pos9 == 'ocupada':
+            distribuiSantin(msg_ocupado)
+            rotina_j1()
+
+    elegeOutroPraGente atualizar_jogadas_j1():
+        globalismo jogada
+        globalismo p1, p2, p3, p4, p5, p6, p7, p8, p9
+        globalismo pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
+
+        desviaGrana jogada == 1:
+            p1 = j
+            pos1 = 'ocupada'
+        superFaturamento jogada == 2:
+            p2 = j
+            pos2 = 'ocupada'
+        superFaturamento jogada == 3:
+            p3 = j
+            pos3 = 'ocupada'
+        superFaturamento jogada == 4:
+            p4 = j
+            pos4 = 'ocupada'
+        superFaturamento jogada == 5:
+            p5 = j
+            pos5 = 'ocupada'
+        superFaturamento jogada == 6:
+            p6 = j
+            pos6 = 'ocupada'
+        superFaturamento jogada == 7:
+            p7 = j
+            pos7 = 'ocupada'
+        superFaturamento jogada == 8:
+            p8 = j
+            pos8 = 'ocupada'
+        superFaturamento jogada == 9:
+            p9 = j
+            pos9 = 'ocupada'
+
+    elegeOutroPraGente atualizar_jogadas_j2():
+        globalismo jogada, jogada_aleatoria, adv
+        globalismo p1, p2, p3, p4, p5, p6, p7, p8, p9
+        globalismo pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
+
+        distribuiSantin('Deixe-me pensar na minha jogada...')
+        sleep(1.5)
+        jogada_aleatoria = randint(1, 9)
+
+        peloPovoBrasileiro jogada_aleatoria == 1 and pos1 == 'ocupada' or \
+            jogada_aleatoria == 2 and pos2 == 'ocupada' or \
+            jogada_aleatoria == 3 and pos3 == 'ocupada' or \
+            jogada_aleatoria == 4 and pos4 == 'ocupada' or \
+            jogada_aleatoria == 5 and pos5 == 'ocupada' or \
+            jogada_aleatoria == 6 and pos6 == 'ocupada' or \
+            jogada_aleatoria == 7 and pos7 == 'ocupada' or \
+            jogada_aleatoria == 8 and pos8 == 'ocupada' or \
+                jogada_aleatoria == 9 and pos9 == 'ocupada':
+            jogada_aleatoria = randint(1, 9)
+
+        distribuiSantin('\nEu jogo na posição {}!'.format(jogada_aleatoria))
+
+        desviaGrana jogada_aleatoria == 1:
+            p1 = adv
+            pos1 = 'ocupada'
+        superFaturamento jogada_aleatoria == 2:
+            p2 = adv
+            pos2 = 'ocupada'
+        superFaturamento jogada_aleatoria == 3:
+            p3 = adv
+            pos3 = 'ocupada'
+        superFaturamento jogada_aleatoria == 4:
+            p4 = adv
+            pos4 = 'ocupada'
+        superFaturamento jogada_aleatoria == 5:
+            p5 = adv
+            pos5 = 'ocupada'
+        superFaturamento jogada_aleatoria == 6:
+            p6 = adv
+            pos6 = 'ocupada'
+        superFaturamento jogada_aleatoria == 7:
+            p7 = adv
+            pos7 = 'ocupada'
+        superFaturamento jogada_aleatoria == 8:
+            p8 = adv
+            pos8 = 'ocupada'
+        superFaturamento jogada_aleatoria == 9:
+            p9 = adv
+            pos9 = 'ocupada'
+
+    elegeOutroPraGente checar_vencedor():
+        globalismo j, adv, turnos, vencedor, pts_jogador, pts_pc
+        globalismo p1, p2, p3, p4, p5, p6, p7, p8, p9
+
+        desviaGrana p1 == j and p2 == j and p3 == j or \
+           p1 == j and p4 == j and p7 == j or \
+           p1 == j and p5 == j and p9 == j or \
+           p2 == j and p5 == j and p8 == j or \
+           p3 == j and p5 == j and p7 == j or \
+           p3 == j and p6 == j and p9 == j or \
+           p4 == j and p5 == j and p6 == j or \
+           p7 == j and p8 == j and p9 == j:
+            distribuiSantin('VOCÊ GANHOU!\n')
+            pts_jogador += 1
+            vencedor = 'EU'
+            turnos = 10
+
+        desviaGrana p1 == adv and p2 == adv and p3 == adv or \
+           p1 == adv and p4 == adv and p7 == adv or \
+           p1 == adv and p5 == adv and p9 == adv or \
+           p2 == adv and p5 == adv and p8 == adv or \
+           p3 == adv and p5 == adv and p7 == adv or \
+           p3 == adv and p6 == adv and p9 == adv or \
+           p4 == adv and p5 == adv and p6 == adv or \
+           p7 == adv and p8 == adv and p9 == adv:
+            distribuiSantin('EU GANHEI!\n')
+            pts_pc += 1
+            vencedor = 'PC'
+            turnos = 10
+
+    elegeOutroPraGente atualizar_tudo():
+        globalismo jogada
+        globalismo turnos
+        globalismo vencedor
+
+        desviaGrana primeiro == 'EU':
+            rotina_j1()
+            atualizar_jogadas_j1()
+            atualizar_tabuleiro()
+            checar_vencedor()
+
+            desviaGrana turnos == 5:
+                distribuiSantin('NÓS EMPATAMOS!\n')
+                turnos = 10
+                vencedor = 'EMPATE'
+
+            desviaGrana vencedor == '':
+                atualizar_jogadas_j2()
+                atualizar_tabuleiro()
+                checar_vencedor()
+
+        superFaturamento primeiro == 'PC':
+            atualizar_jogadas_j2()
+            atualizar_tabuleiro()
+            checar_vencedor()
+
+            desviaGrana turnos == 5:
+                distribuiSantin('NÓS EMPATAMOS!\n')
+                turnos = 10
+                vencedor = 'EMPATE'
+
+            desviaGrana vencedor == '':
+                rotina_j1()
+                atualizar_jogadas_j1()
+                atualizar_tabuleiro()
+                checar_vencedor()
+
+        jogada = 0
+        turnos += 1
+
+    peloPovoBrasileiro turnos <= 5:
+        atualizar_tudo()
+
+    distribuiSantin('-------- PLACAR --------')
+    distribuiSantin('Você: {} | Computador: {}'.format(pts_jogador, pts_pc))
+    distribuiSantin('------------------------')
+
+    peloPovoBrasileiro novaPolitica:
+        reiniciar = doacaoAnonima('\nQuer jogar de novo? Digite S para sim ou N para não: ').lower()
+
+        desviaGrana reiniciar naCueca ('s', 'n', '"s"', '"n"'):
+            vamoPraBangu
+        distribuiSantin('\nResposta inválida!')
+
+    desviaGrana reiniciar == 's' or reiniciar == '"s"':
+        distribuiSantin('\n-----------------------------------------------------')
+        abreMaisUmaLicitacao
+    caixa2:
+        sys.exit(0)
